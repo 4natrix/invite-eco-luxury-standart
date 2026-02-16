@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Айбек & Айгерим | Эко-свадьба</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Lora:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            font-size: 16px;
+        }
+        
+        body {
+            font-family: 'Cormorant Garamond', 'Georgia', serif;
+            color: #4a4a3f;
+            background: #f5efe7;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgdmlld0JveD0iMCAwIDgwIDgwIj48cGF0aCBkPSJNMjAgMjBoMTB2MTBIMjB6TTUwIDUwaDEwdjEwSDUweiIgZmlsbD0iI2RjZDhjNCIgb3BhY2l0eT0iMC4xIi8+PC9zdmc+');
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),
+                        url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1600');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxmaWx0ZXIgaWQ9Im5vaXNlIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc1IiBudW1PY3RhdmVzPSIyIiAvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNub2lzZSkiIG9wYWNpdHk9IjAuMDUiIC8+PC9zdmc+');
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            padding: 20px;
+            z-index: 2;
+        }
+        
+        .hero-pre {
+            font-size: 0.9rem;
+            letter-spacing: 6px;
+            margin-bottom: 20px;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        .hero-names {
+            font-size: 4.5rem;
+            font-weight: 400;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero-and {
+            font-size: 3rem;
+            color: #e6d5b8;
+            margin: 0 15px;
+        }
+        
+        .hero-date {
+            font-size: 1.8rem;
+            font-weight: 300;
+            margin-bottom: 30px;
+            font-family: 'Lora', serif;
+            font-style: italic;
+        }
+        
+        .timer-section {
+            margin: 40px 0;
+        }
+        
+        .timer-grid {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .timer-item {
+            text-align: center;
+            min-width: 80px;
+        }
+        
+        .timer-number {
+            font-size: 3rem;
+            font-weight: 300;
+            color: white;
+            line-height: 1;
+        }
+        
+        .timer-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-top: 8px;
+            color: rgba(255,255,255,0.8);
+        }
+        
+        .location-badge {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 30px;
+            background: rgba(127, 140, 107, 0.3);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+            font-size: 1rem;
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 400;
+            text-align: center;
+            margin-bottom: 15px;
+            color: #4a4a3f;
+        }
+        
+        .section-subtitle {
+            font-size: 0.9rem;
+            text-align: center;
+            color: #7f8c6b;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        .section-divider {
+            width: 80px;
+            height: 2px;
+            background: #d4c8b8;
+            margin: 0 auto 50px;
+        }
+        
+        .venue-section {
+            background: rgba(255, 248, 240, 0.7);
+        }
+        
+        .venue-card {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .venue-name {
+            font-size: 2rem;
+            color: #4a4a3f;
+            margin-bottom: 10px;
+        }
+        
+        .venue-address {
+            font-size: 1.1rem;
+            color: #6f6b63;
+            margin-bottom: 10px;
+        }
+        
+        .venue-time {
+            color: #b85c38;
+            font-size: 1.1rem;
+        }
+        
+        .map-container {
+            margin: 40px 0;
+            border: 2px solid #d4c8b8;
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 350px;
+            border: 0;
+            filter: sepia(20%);
+        }
+        
+        .map-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .map-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 30px;
+            background: white;
+            border: 1px solid #d4c8b8;
+            text-decoration: none;
+            color: #4a4a3f;
+            transition: all 0.3s;
+        }
+        
+        .map-btn:hover {
+            background: #7f8c6b;
+            border-color: #7f8c6b;
+            color: white;
+        }
+        
+        .contact-box {
+            text-align: center;
+            margin-top: 60px;
+            padding: 50px 40px;
+            background: white;
+            border: 1px solid #d4c8b8;
+        }
+        
+        .contact-title {
+            color: #8a8178;
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        .contact-phone {
+            display: inline-block;
+            font-size: 2rem;
+            color: #7f8c6b;
+            text-decoration: none;
+            margin-bottom: 10px;
+        }
+        
+        .music-player {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 100;
+        }
+        
+        .music-btn {
+            background: white;
+            border: 1px solid #d4c8b8;
+            padding: 12px 25px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #4a4a3f;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        .music-btn:hover {
+            background: #7f8c6b;
+            color: white;
+        }
+        
+        footer {
+            background: #4a4a3f;
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+        
+        .footer-names {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        @media (max-width: 768px) {
+            html { font-size: 14px; }
+            .hero-names { font-size: 3rem; }
+            .timer-grid { gap: 20px; }
+            .timer-number { font-size: 2rem; }
+            .map-buttons { flex-direction: column; }
+            .music-player { left: 20px; right: 20px; bottom: 20px; }
+            .music-btn { width: 100%; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-pre">ЭКО-СВАДЬБА В ГОРАХ</div>
+            <h1 class="hero-names">
+                АЙБЕК <span class="hero-and">&</span> АЙГЕРИМ
+            </h1>
+            <div class="hero-date">26 июня 2026</div>
+            
+            <div class="timer-section">
+                <div class="timer-grid">
+                    <div class="timer-item"><span class="timer-number" id="days">00</span><div class="timer-label">ДНЕЙ</div></div>
+                    <div class="timer-item"><span class="timer-number" id="hours">00</span><div class="timer-label">ЧАСОВ</div></div>
+                    <div class="timer-item"><span class="timer-number" id="minutes">00</span><div class="timer-label">МИНУТ</div></div>
+                    <div class="timer-item"><span class="timer-number" id="seconds">00</span><div class="timer-label">СЕКУНД</div></div>
+                </div>
+            </div>
+            
+            <div class="location-badge">
+                <i class="fas fa-leaf"></i> ЭКО-ПАРК «ЛЕСНАЯ СКАЗКА» • 16:00
+            </div>
+        </div>
+    </section>
+    
+    <section class="venue-section section">
+        <div class="container">
+            <h2 class="section-title">Место проведения</h2>
+            <div class="section-subtitle">ГДЕ ЭТО БУДЕТ</div>
+            <div class="section-divider"></div>
+            
+            <div class="venue-card">
+                <div class="venue-name">ЭКО-ПАРК «ЛЕСНАЯ СКАЗКА»</div>
+                <div class="venue-address">Алматинская область, с. Карагайлы</div>
+                <div class="venue-time">СБОР ГОСТЕЙ В 16:00 • ЦЕРЕМОНИЯ В 17:00</div>
+            </div>
+            
+            <div class="map-container">
+                <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A8b8c8d8e8f8a8b8c8d8e8f8a8b8c8d8e8f8a8b&source=constructor"></iframe>
+            </div>
+            
+            <div class="map-buttons">
+                <a href="#" class="map-btn"><i class="fas fa-map"></i> Яндекс Карты</a>
+                <a href="#" class="map-btn"><i class="fab fa-google"></i> Google Maps</a>
+                <a href="#" class="map-btn"><i class="fas fa-location-dot"></i> 2GIS</a>
+            </div>
+            
+            <div class="contact-box">
+                <div class="contact-title">ПОДТВЕРДИТЕ ПРИСУТСТВИЕ</div>
+                <a href="tel:+77771234567" class="contact-phone">+7 (777) 123-45-67</a>
+                <div style="color: #8a8178;">Айгуль, организатор</div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="footer-names">АЙБЕК ✦ АЙГЕРИМ</div>
+        <div>26 июня 2026 • Алматы</div>
+        <div style="margin-top: 30px; font-style: italic;">В гармонии с природой</div>
+    </footer>
+    
+    <div class="music-player">
+        <button class="music-btn" id="musicToggle"><i class="fas fa-music"></i> <span>Эмбиент</span></button>
+        <audio id="bgMusic" loop src="https://assets.mixkit.co/music/preview/mixkit-forest-waves-118.mp3"></audio>
+    </div>
+    
+    <script>
+        function updateTimer() {
+            const wedding = new Date('2026-06-26T16:00:00').getTime();
+            const now = new Date().getTime();
+            const diff = wedding - now;
+            
+            document.getElementById('days').textContent = Math.floor(diff/(1000*60*60*24)).toString().padStart(2,'0');
+            document.getElementById('hours').textContent = Math.floor((diff%(1000*60*60*24))/(1000*60*60)).toString().padStart(2,'0');
+            document.getElementById('minutes').textContent = Math.floor((diff%(1000*60*60))/(1000*60)).toString().padStart(2,'0');
+            document.getElementById('seconds').textContent = Math.floor((diff%(1000*60))/1000).toString().padStart(2,'0');
+        }
+        updateTimer();
+        setInterval(updateTimer, 1000);
+        
+        let playing = false;
+        const music = document.getElementById('bgMusic');
+        const btn = document.getElementById('musicToggle');
+        btn.addEventListener('click', () => {
+            if(playing) { music.pause(); btn.innerHTML = '<i class="fas fa-music"></i> <span>Эмбиент</span>'; }
+            else { music.play(); btn.innerHTML = '<i class="fas fa-pause"></i> <span>Пауза</span>'; }
+            playing = !playing;
+        });
+    </script>
+</body>
+</html>
