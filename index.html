@@ -85,8 +85,10 @@
             margin-bottom: clamp(15px, 3vw, 20px);
             font-family: 'Inter', 'Arial', sans-serif;
             font-weight: 400;
+            text-align: center;
         }
         
+        /* ⭐⭐ ИСПРАВЛЕНО: Имена по центру ⭐⭐ */
         .hero-names {
             font-size: clamp(2.5rem, 8vw, 4.5rem);
             font-weight: 400;
@@ -94,16 +96,24 @@
             line-height: 1.2;
             display: flex;
             flex-wrap: wrap;
-            align-items: baseline;
+            align-items: center;
             justify-content: center;
             gap: clamp(5px, 2vw, 15px);
+            text-align: center;
+            width: 100%;
+        }
+        
+        .hero-name {
+            display: inline-block;
+            text-align: center;
         }
         
         .hero-and {
             font-size: clamp(1.5rem, 5vw, 3rem);
             color: #e6d5b8;
             display: inline-block;
-            white-space: nowrap;
+            text-align: center;
+            line-height: 1;
         }
         
         .hero-date {
@@ -112,6 +122,7 @@
             margin-bottom: clamp(20px, 5vw, 30px);
             font-family: 'Lora', serif;
             font-style: italic;
+            text-align: center;
         }
         
         /* ⭐⭐⭐ ТАЙМЕР ⭐⭐⭐ */
@@ -257,8 +268,8 @@
             color: white;
         }
         
-        /* ⭐⭐⭐ КОНТАКТЫ ⭐⭐⭐ */
-        .contact-box {
+        /* ⭐⭐ НОВАЯ КЛИКАБЕЛЬНАЯ КНОПКА С ТЕЛЕФОНОМ ⭐⭐ */
+        .rsvp-box {
             text-align: center;
             margin-top: clamp(30px, 8vw, 60px);
             padding: clamp(25px, 6vw, 50px) clamp(20px, 5vw, 40px);
@@ -266,20 +277,43 @@
             border: 1px solid #d4c8b8;
         }
         
-        .contact-title {
+        .rsvp-title {
             color: #8a8178;
-            margin-bottom: clamp(10px, 3vw, 20px);
+            margin-bottom: clamp(15px, 3vw, 25px);
             letter-spacing: clamp(2px, 1vw, 3px);
             font-family: 'Inter', 'Arial', sans-serif;
-            font-size: clamp(0.8rem, 2.5vw, 1rem);
+            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+            text-transform: uppercase;
         }
         
-        .contact-phone {
+        .rsvp-button {
             display: inline-block;
-            font-size: clamp(1.2rem, 4vw, 2rem);
-            color: #7f8c6b;
+            background: #7f8c6b;
+            color: white;
+            padding: clamp(12px, 3vw, 16px) clamp(25px, 6vw, 45px);
             text-decoration: none;
-            margin-bottom: clamp(5px, 1vw, 10px);
+            border: none;
+            font-size: clamp(1.1rem, 3.5vw, 1.4rem);
+            font-family: 'Inter', 'Arial', sans-serif;
+            letter-spacing: 2px;
+            transition: background 0.3s;
+            margin-bottom: 15px;
+            width: auto;
+            max-width: 100%;
+        }
+        
+        .rsvp-button:hover {
+            background: #5f6b4f;
+        }
+        
+        .rsvp-button i {
+            margin-right: 10px;
+        }
+        
+        .organizer-name {
+            color: #8a8178;
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+            font-family: 'Inter', 'Arial', sans-serif;
         }
         
         /* ⭐⭐⭐ МУЗЫКА ⭐⭐⭐ */
@@ -349,6 +383,10 @@
                 justify-content: center;
             }
             
+            .rsvp-button {
+                width: 100%;
+            }
+            
             .music-player {
                 left: 20px;
                 right: 20px;
@@ -383,10 +421,6 @@
             
             .timer-item {
                 min-width: 60px;
-            }
-            
-            .contact-phone {
-                font-size: 1.3rem;
             }
             
             .venue-name {
@@ -502,6 +536,7 @@
         <div class="hero-content">
             <div class="hero-pre">ЭКО-СВАДЬБА В ГОРАХ</div>
             
+            <!-- ⭐⭐ ИСПРАВЛЕНО: Имена по центру ⭐⭐ -->
             <h1 class="hero-names">
                 <span class="hero-name">АЙБЕК</span>
                 <span class="hero-and">&</span>
@@ -563,11 +598,13 @@
                 <a href="#" class="map-btn"><i class="fas fa-location-dot"></i> 2GIS</a>
             </div>
             
-            <!-- КОНТАКТЫ -->
-            <div class="contact-box">
-                <div class="contact-title">ПОДТВЕРДИТЕ ПРИСУТСТВИЕ</div>
-                <a href="tel:+77771234567" class="contact-phone">+7 (777) 123-45-67</a>
-                <div style="color: #8a8178; margin-top: 10px;">Айгуль, организатор</div>
+            <!-- ⭐⭐ НОВАЯ КЛИКАБЕЛЬНАЯ КНОПКА ПОДТВЕРЖДЕНИЯ ⭐⭐ -->
+            <div class="rsvp-box">
+                <div class="rsvp-title">ПОДТВЕРДИТЕ ПРИСУТСТВИЕ</div>
+                <a href="tel:+77771234567" class="rsvp-button">
+                    <i class="fas fa-phone-alt"></i> +7 (777) 123-45-67
+                </a>
+                <div class="organizer-name">Айгуль, организатор</div>
             </div>
         </div>
     </section>
